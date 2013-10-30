@@ -1,0 +1,17 @@
+%p
+  = @item.title
+%p
+  = @item.description
+%p
+  = "$" + @item.price.to_s
+%p
+  - if @item.available
+    Available
+  - else
+    Not Available
+%p
+  Start Time:
+  = @item.start_time.strftime("%m/%d/%Y")
+%p
+  End Time:
+  = @item.end_time.strftime("%m/%d/%Y")

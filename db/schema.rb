@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030203034) do
+
+ActiveRecord::Schema.define(:version => 20131030195734) do
+
+  create_table "items", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "available",   :default => true
+    t.date     "start_time"
+    t.date     "end_time"
+    t.integer  "lender_id"
+    t.integer  "price"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+end
+
+# ActiveRecord::Schema.define(:version => 20131030203034) do
 
   create_table "users", :force => true do |t|
     t.string   "provider"
@@ -25,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20131030203034) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-  end
+end
+
+  # end
 
 end
