@@ -24,4 +24,5 @@ group :development, :test do
 end
 
 gem 'jquery-rails'
+gem 'omniauth-facebook'
 
