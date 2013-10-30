@@ -36,3 +36,29 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+OmniAuth.config.test_mode = true
+
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+  :provider => 'facebook',
+  :uid => '123545',
+  :extra => {:raw_info => {:id => "1234567", :email => "ghost@nobody.com", :first_name => "Mark", :last_name => "Jankowski" }},
+  :info => {:image => "http://example.com"},
+  :credentials => {:token => "3425tfgsd43tdfve", :expires_at => 82936523975}
+  })
+
+OmniAuth.config.mock_auth[:facebook_no_name] = OmniAuth::AuthHash.new({
+  :provider => 'facebook',
+  :uid => '123545',
+  :extra => {:raw_info => {:id => "1234567", :email => "ghost@nobody.com"}},
+  :info => {:image => "http://example.com"},
+  :credentials => {:token => "3425tfgsd43tdfve", :expires_at => 82936523975}
+  })
+
+OmniAuth.config.mock_auth[:facebook_no_email] = OmniAuth::AuthHash.new({
+  :provider => 'facebook',
+  :uid => '123545',
+  :extra => {:raw_info => {:id => "1234567",:first_name => "Mark", :last_name => "Jankowski"}},
+  :info => {:image => "http://example.com"},
+  :credentials => {:token => "3425tfgsd43tdfve", :expires_at => 82936523975}
+  })
