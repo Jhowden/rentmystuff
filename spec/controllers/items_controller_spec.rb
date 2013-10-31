@@ -2,13 +2,12 @@ require 'spec_helper'
 
 describe ItemsController do
 
-  let(:item) {Item.create(title: "something cool")}
+  let!(:item) {Item.create(title: "something cool")}
 
   describe "GET index" do
     it "assigns @items" do
-      item = Item.create(title: "test")
       get :index
-      expect(assigns(:items)).to eq([item])
+      expect(assigns(:items)).to include item
     end
 
     it "renders the index template" do

@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe Feedback do
   let(:user) { User.from_facebook(OmniAuth.config.mock_auth[:facebook]) }
-  let(:feedback) { Feedback.create(thumbs_up: true, comment: "AWESOME") }
+  subject(:feedback) { create(:feedback) }
 
   it 'validates presence of thumbs up' do
-    Feedback.new.should_not be_valid
+    Feedback.new(comment: "cool").should_not be_valid
   end
 
   it 'validates presence of comment' do
@@ -13,16 +13,10 @@ describe Feedback do
   end
 
   describe 'association with giver' do
-    before do
-      feedback.giver = user
-    end
+    before { feedback.giver = user }
 
-    it 'is an instance of User' do
-      feedback.giver.should be_a User
-    end
+    its(:giver) { should be_a User }
 
-    it 'is the correct user' do
-      feedback.giver.should eq user
-    end
+    its(:giver) {should eq user}
   end
 end
