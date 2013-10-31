@@ -59,6 +59,10 @@ describe User do
       user.borrowed_items.should include item
     end
   end
+
+  describe 'association with feebacks' do
+    
+  end
  
 end
 

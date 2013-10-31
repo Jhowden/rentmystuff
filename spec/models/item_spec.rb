@@ -9,6 +9,8 @@ describe Item do
                      lender_id: nil,
                      price: 30)}
   let(:user) { User.from_facebook(OmniAuth.config.mock_auth[:facebook]) }
+  let(:feedback) { Feedback.create(thumbs_up: true, comment: "AWESOME") }
+  
   
   it "item should be available by default" do
     item.available.should be_true
@@ -44,6 +46,20 @@ describe Item do
 
     it 'includes the associated user' do
       item.borrowers.should include user
+    end
+  end
+
+  describe 'association with feedback' do
+    before do
+      item.received_feedback << feedback
+    end
+
+    it 'returns an array' do
+      item.received_feedback.should be_a Array
+    end
+
+    it 'includes the received feedback' do
+      item.received_feedback.should include feedback
     end
   end
 end

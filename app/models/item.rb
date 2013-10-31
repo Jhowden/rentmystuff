@@ -7,4 +7,5 @@ class Item < ActiveRecord::Base
   
   has_many :borrowings
   has_many :borrowers, :through => :borrowings, :source => :user
+  has_many :received_feedback, :through => :borrowings, :source => :feedback
 end
