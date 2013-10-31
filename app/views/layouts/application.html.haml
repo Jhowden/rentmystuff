@@ -13,7 +13,7 @@
         = link_to "Rentable", root_path, {:class => "nav_title"}
       .login-area
         -if current_user
-          = "Signed in as " + current_user.first_name + " " + current_user.last_name
+          = "Signed in as " + current_user.first_name + " " + current_user.last_name + ' |'
           =link_to "Sign out", '/logout'
         -else 
           = link_to '', '/auth/facebook',  {:class => 'sb flat facebook' }
@@ -21,7 +21,7 @@
 
     =yield
 
-    %footer.story
+    %footer.story.cf
       %ul
         %li
           = link_to 'about us', '#'
