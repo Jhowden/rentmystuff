@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+    if params[:photo]
+      params[:photo].each do |k,v|
+        @item.photos << Photo.create(file: v)
+      end
+    end
 
     if @item.save
       flash[:notice] = "Item was successfully created"

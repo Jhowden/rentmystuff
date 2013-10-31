@@ -11,5 +11,6 @@
  *= require css-social-buttons/social-buttons
  *= require_self
  *= require buttons/css/kanso
+ *= require fancybox
  *= require_tree .
  */

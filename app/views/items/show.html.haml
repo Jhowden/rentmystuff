@@ -15,3 +15,6 @@
 %p
   End Time:
   = @item.end_time.strftime("%m/%d/%Y")
+- @item.photos.each do |photo|
+  %p
+    =link_to image_tag(photo.file.url(:thumb)), "#{photo.file}", {class: 'fancybox', rel: 'group1'}
