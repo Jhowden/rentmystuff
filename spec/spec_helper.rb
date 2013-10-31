@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require_relative 'shared_examples'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -35,6 +36,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.include FactoryGirl::Syntax::Methods
 end
 
 OmniAuth.config.test_mode = true
@@ -43,6 +45,14 @@ OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
   :provider => 'facebook',
   :uid => '123545',
   :extra => {:raw_info => {:id => "1234567", :email => "ghost@nobody.com", :first_name => "Mark", :last_name => "Jankowski" }},
+  :info => {:image => "http://example.com"},
+  :credentials => {:token => "3425tfgsd43tdfve", :expires_at => 82936523975}
+  })
+
+OmniAuth.config.mock_auth[:facebook_2] = OmniAuth::AuthHash.new({
+  :provider => 'facebook',
+  :uid => '123545',
+  :extra => {:raw_info => {:id => "1234567", :email => "test@example", :first_name => "Uku", :last_name => "Taht" }},
   :info => {:image => "http://example.com"},
   :credentials => {:token => "3425tfgsd43tdfve", :expires_at => 82936523975}
   })
