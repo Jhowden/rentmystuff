@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+
   attr_accessible :first_name, :last_name, :email
+
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :email, :presence => true
@@ -13,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :given_feedbacks, :class_name => 'Feedback', :foreign_key => :giver_id
 
   has_many :received_feedbacks, :through => :lended_items, :source => :received_feedbacks
+
+  acts_as_messageable
 
 
   def self.from_facebook(auth)
@@ -31,5 +35,13 @@ class User < ActiveRecord::Base
       return user
     end
   end
+
+def display_name
+  return self.first_name + " " + self.last_name
+end
+
+def notifications_email(object)
+  return self.email
+end
 
 end

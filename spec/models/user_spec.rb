@@ -69,6 +69,16 @@ describe User do
       subject.pending_requests.should_not be_empty
     end
 
+  describe '.name' do
+    it 'validates the name of the person receiving the email' do
+      user.display_name.should eq "Mark Jankowski"
+    end
+  end
+
+  describe '.notifications_email' do
+    it 'sends an email to the user while taking an argument' do
+      user.notifications_email("Why hello there").should eq "ghost@nobody.com"
+    end
   end
  
 end
