@@ -6,4 +6,6 @@ class Feedback < ActiveRecord::Base
 
   has_many :borrowings
   has_many :items, :through => :borrowings
+
+  belongs_to :giver, :class_name => 'User'
 end

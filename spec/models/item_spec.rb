@@ -51,15 +51,15 @@ describe Item do
 
   describe 'association with feedback' do
     before do
-      item.received_feedback << feedback
+      item.received_feedbacks << feedback
     end
 
     it 'returns an array' do
-      item.received_feedback.should be_a Array
+      item.received_feedbacks.should be_a Array
     end
 
     it 'includes the received feedback' do
-      item.received_feedback.should include feedback
+      item.received_feedbacks.should include feedback
     end
   end
 end

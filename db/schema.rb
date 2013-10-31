@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20131031005026) do
   end
 
   create_table "feedbacks", :force => true do |t|
+    t.integer  "giver_id"
     t.string   "comment"
     t.boolean  "thumbs_up"
     t.datetime "created_at", :null => false
