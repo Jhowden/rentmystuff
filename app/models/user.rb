@@ -3,6 +3,15 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => true
   validates :email, :presence => true
 
+  has_many :lended_items, :class_name => 'Item', :foreign_key => :lender_id
+
+  has_many :borrowings
+  has_many :borrowed_items, :through => :borrowings, :source => :item
+
+  has_many :given_feedbacks, :class_name => 'Feedback', :foreign_key => :giver_id
+
+  has_many :received_feedbacks, :through => :lended_items, :source => :received_feedbacks
+
 
   def self.from_facebook(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
