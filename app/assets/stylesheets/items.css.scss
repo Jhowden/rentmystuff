@@ -1,3 +1,72 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// html { 
+//   background: url(http://content.artofmanliness.com/uploads//2012/08/31header4.jpg) no-repeat center center fixed; 
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: 100% 100%;
+// }
+
+body {
+  margin: 0;
+}
+
+nav {
+position: fixed;
+border: 1px solid black;
+top: 0;
+width: 100%;
+height: 7%;
+text-align: center;
+/* Adds shadow to the bottom of the bar */
+-webkit-box-shadow: 0px 0px 8px 0px #000000;
+-moz-box-shadow: 0px 0px 8px 0px #000000;
+box-shadow: 0px 0px 8px 0px #000000;
+/* Adds the transparent background */
+background-color: rgba(1, 1, 1, 0.8);
+color: rgba(1, 1, 1, 0.8);
+z-index: 100;
+}
+
+nav h1 {
+  margin: 0;
+}
+
+nav a {
+  color:white;
+}
+
+nav a:hover {
+  color:grey;
+}
+
+.welcome_page_body {
+  padding-top: 4%;
+}
+
+.nav_title {
+  color:yellow;
+}
+
+.nav_log_ing {
+  color:white;
+}
+
+// Scrolling stuff
+section {
+  background: url("skyline.jpg") 50% 0 no-repeat fixed;
+}
+
+.story { 
+  height: 1000px; 
+  padding: 0; 
+  margin: 0; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  margin: 0 auto; 
+  z-index: 50;
+  color: white;
+}
