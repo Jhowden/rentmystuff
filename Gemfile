@@ -22,6 +22,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
 end
 
+gem 'jquery-ui-rails'
 gem 'jquery-rails'
 # gem 'fancybox-rails'
 gem 'fancybox2-rails', '~> 0.2.4'

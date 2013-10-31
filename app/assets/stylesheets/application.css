@@ -9,8 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require css-social-buttons/social-buttons
- *= require_self
  *= require buttons/css/kanso
  *= require fancybox
+ *= require ukus-theme/jquery-ui-1.10.3.custom
+ *= require_self
  *= require_tree .
  */
