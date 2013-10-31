@@ -1,0 +1,31 @@
+%html
+  %head
+    %title Stuffwithfriends
+    = stylesheet_link_tag    "application", :media => "all" 
+    = javascript_include_tag "application" 
+    = csrf_meta_tags 
+  %body
+    %nav
+      .nav-header
+
+        = link_to "Rentable", root_path, {:class => "nav_title"}
+      .login-area
+        -if current_user
+          = "Signed in as " + current_user.first_name + " " + current_user.last_name
+          =link_to "Sign out", '/logout'
+        -else 
+          = link_to '', '/auth/facebook',  {:class => 'sb flat facebook' }
+          = link_to "Sign in with Facebook", "/auth/facebook"
+
+    =yield
+
+    %footer.story
+      %ul
+        %li
+          = link_to 'about us', '#'
+        %li
+          = link_to 'contact', '#'
+        %li 
+          = link_to 'awesome', '#'
+        %li 
+          = link_to 'yeahhh', '#'

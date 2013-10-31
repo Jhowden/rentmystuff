@@ -1,0 +1,28 @@
+%div{:id => 'main', :role => "main"}
+  %section{:class => "story", :id => "first", :data => {:speed => "8", :type => "background"}}
+    %div.smashinglogo{:data => {:type => "sprite", :offsetY => "100", :Xposition => "50%", :speed => "4"}}
+    %article
+      
+      = form_tag '/search' do
+        = text_field_tag 'search', "I'm looking for"
+        = text_field_tag 'start_date', 'From'
+        = text_field_tag 'end_date', "To"
+        = submit_tag 'Search', :class => 'button is-inverse'
+
+  %section{:class => "story", :id => "second", :data => {:speed => "4", :type => "background"}}
+    %article
+      %h1 Rent your stuff
+      %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.
+  %section{:class => "story", :id => "third", :data => {:speed => "6", :type => "background"}}
+    %div.photograph{:data => {:type => "sprite", :offsetY => "1250", :Xposition => "25%%", :speed => "2"}}
+    %article
+  
+  %section{:class => "story", :id => "fourth", :data => {:speed => "4", :type => "background"}}
+    %article
+      %h1 Rent your stuff
+      %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.
+  %section{:class => "story", :id => "fifth", :data => {:speed => "6", :type => "background"}}
+    %div.photograph{:data => {:type => "sprite", :offsetY => "1250", :Xposition => "25%%", :speed => "2"}}
+    %article
+
+   
