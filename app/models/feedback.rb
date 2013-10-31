@@ -4,8 +4,8 @@ class Feedback < ActiveRecord::Base
   validates :thumbs_up, :inclusion => {:in => [true,false]}
   validates_presence_of :comment
 
-  has_many :borrowings
-  has_many :items, :through => :borrowings
+  has_one :borrowing
+  has_one :item, :through => :borrowings
 
   belongs_to :giver, :class_name => 'User'
 end
