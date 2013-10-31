@@ -28,6 +28,7 @@ describe ItemsController do
       get :show, id: item
       expect(response).to render_template("show")
     end
+    
   end
 
 end

@@ -1,17 +1,24 @@
-%p
-  = @item.title
-%p
-  = @item.description
-%p
-  = "$" + @item.price.to_s
-%p
-  - if @item.available
-    Available
-  - else
-    Not Available
-%p
-  Start Time:
-  = @item.start_time.strftime("%m/%d/%Y")
-%p
-  End Time:
-  = @item.end_time.strftime("%m/%d/%Y")
+.wrapper
+  .col-66.cf.center
+    .item-show
+      %h1
+        = @item.title
+      .gallery
+        - @item.photos.each do |photo|
+          .photo
+            =link_to image_tag(photo.file.url(:thumb)), "#{photo.file}", {class: 'fancybox', rel: 'group1'}
+      %p
+        = @item.description
+
+  .col-33.cf.item-borrow
+    %span.price
+      Price
+    %h2
+      = "$" + @item.price.to_s
+    - if @item.available
+      .availability#datepick
+    - else
+      Not Available
+
+:javascript
+    $('#datepick').datepicker();

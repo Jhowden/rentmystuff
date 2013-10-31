@@ -1,3 +1,55 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper{
+  margin-top: 50px;
+  background-color: #EFF0E9; 
+}
+
+.item-show h1, .item-show h2, .item-borrow h2 {
+  color: #983A34;
+}
+
+.item-borrow{
+  background-color: #ECEDE6;
+}
+
+.price {
+  position:relative;
+  top: 20px;
+}
+
+.item-borrow h2 {
+  display: inline-block;
+}
+
+.col-66{
+  width:62%;
+  float:left;
+  margin:30px 30px;
+}
+
+.availability {
+  float:right;
+  font-size: 14px;
+}
+
+.col-33 {
+  width: 31%;
+  float:left;
+  margin:30px 30px;
+}
+
+.photo {
+  display: inline-block;
+  margin: 20px;
+  -webkit-box-shadow: 1px 0px 8px rgba(50, 50, 50, 0.37);
+  -moz-box-shadow:    1px 0px 8px rgba(50, 50, 50, 0.37);
+  box-shadow:         1px 0px 8px rgba(50, 50, 50, 0.37);
+}
+
+.gallery {
+  overflow: auto;
+  background-color: rgba(64, 74, 84, 1);
+}
+
+.center {
+  text-align:center
+}
