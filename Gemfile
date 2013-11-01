@@ -16,6 +16,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard'
+  gem 'faker'
 end
 
 group :development, :test do

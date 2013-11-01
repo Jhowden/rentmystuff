@@ -1,6 +1,6 @@
 # SEEDS 1.0 - BETA
 
-require 'Faker'
+require 'faker'
 
 # User
 10.times do
@@ -29,8 +29,8 @@ Item.create(
             description: Faker::Lorem.paragraph,
             price: [5,10,15,20].sample,
             available: [true, false].sample,
-            start_time:  "12/#{day_generator.to_s}/2013",
-            end_time: "12/#{day_increment.to_s}/2013",
+            start_time:  Date.new(2013,11,day_generator),
+            end_time: Date.new(2013,11,day_increment),
             # lender_id: (1..50).to_a.sample
            )
 end
