@@ -3,12 +3,13 @@
   background-color: #EFF0E9; 
 }
 
-.item-show h1, .item-show h2, .item-borrow h2 {
+ .item-borrow h2 {
   color: #983A34;
 }
 
 .item-borrow{
   background-color: #ECEDE6;
+  padding: 20px;
 }
 
 .price {
@@ -18,10 +19,11 @@
 
 .item-borrow h2 {
   display: inline-block;
+  margin: 20px 10px;
 }
 
 .col-66{
-  width:62%;
+  width:60%;
   float:left;
   margin:30px 30px;
 }
@@ -32,21 +34,25 @@
 }
 
 .col-33 {
-  width: 31%;
+  width: 30%;
   float:left;
   margin:30px 30px;
 }
 
 .photo {
-  display: inline-block;
-  margin: 20px;
-  -webkit-box-shadow: 1px 0px 8px rgba(50, 50, 50, 0.37);
-  -moz-box-shadow:    1px 0px 8px rgba(50, 50, 50, 0.37);
-  box-shadow:         1px 0px 8px rgba(50, 50, 50, 0.37);
+  clear:both;
+  display: inline;
+  margin: 0 20px;
+  -webkit-box-shadow: 1px 0px 18px rgba(50, 50, 50, 0.37);
+  -moz-box-shadow:    1px 0px 18px rgba(50, 50, 50, 0.37);
+  box-shadow:         1px 0px 18px rgba(50, 50, 50, 0.37);
 }
 
 .gallery {
+  padding: 40px;
+  height: 330px; 
   overflow: auto;
+  white-space: nowrap;
   background-color: rgba(64, 74, 84, 1);
 }
 

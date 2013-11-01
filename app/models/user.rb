@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
+  attr_accessible :first_name, :last_name, :email
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :email, :presence => true
 
   has_many :lended_items, :class_name => 'Item', :foreign_key => :lender_id
+  has_many :pending_requests, :through => :lended_items, :source => :borrowings, :conditions => {:borrowings => {:status => 'pending'}}
 
   has_many :borrowings
   has_many :borrowed_items, :through => :borrowings, :source => :item
@@ -29,4 +31,5 @@ class User < ActiveRecord::Base
       return user
     end
   end
+
 end
