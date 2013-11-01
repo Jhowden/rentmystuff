@@ -7,8 +7,8 @@
       
       = search_form_for @search, :html => { :class => 'search-form', :id => 'form-with-daterange' } do |f|
         = f.text_field :description_cont, :placeholder => "I'm looking for"
-        = text_field_tag :start_date,'From', :id => 'from-date-picker'
-        = text_field_tag :end_date, 'To', :id => 'to-date-picker'
+        = text_field_tag :start_date,'From', :class => 'search-date-picker'
+        = text_field_tag :end_date, 'To', :class => 'search-date-picker'
         = f.hidden_field :available_dates_cont
         = f.submit 'Search', :class => 'button is-inverse'
 
