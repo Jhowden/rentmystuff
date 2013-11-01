@@ -5,9 +5,11 @@ class ItemsController < ApplicationController
     if params[:q] 
       parse_search_dates!(params)
       @search = Item.search(params[:q])
+      @items = @search.result 
+      p params
+    else
+      @items = Item.all
     end
-
-    @items = @search.result 
 
   end
 

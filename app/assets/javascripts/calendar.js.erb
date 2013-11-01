@@ -1,0 +1,27 @@
+$(document).ready(function(){
+
+  var maxDate = 60
+  if (($('form').data('available') != undefined)){
+    var maxDate = $('form').data('available').slice(-1)[0]
+    var disabled = $('form').data('inavailable').split(' ')
+
+    $('.multi-date-picker').datepicker({
+      constrainInput: true,
+      beforeShowDay: function(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ disabled.indexOf(string) == -1 ];
+      },
+
+
+      minDate: 0,
+      maxDate: maxDate
+    });
+  }
+
+
+  $('.search-date-picker').datepicker({
+    minDate: 0,
+    maxDate: maxDate
+  });
+});
+

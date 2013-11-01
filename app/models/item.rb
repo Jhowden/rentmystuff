@@ -10,4 +10,11 @@ class Item < ActiveRecord::Base
   has_many :borrowings
   has_many :borrowers, :through => :borrowings, :source => :user
   has_many :received_feedbacks, :through => :borrowings, :source => :feedback
+
+  def inavailable_dates
+    availabilities = available_dates
+    inavailable_dates = (availabilities[0]..availabilities[-1]).to_a - availabilities
+
+    inavailable_dates.map{|date| date.strftime('%Y-%m-%d')}
+  end
 end
