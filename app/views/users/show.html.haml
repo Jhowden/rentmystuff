@@ -1,0 +1,12 @@
+%h3 Your pending transactions
+- current_user.pending_requests.each do |request|
+  %p
+    - if request.status == "pending"
+      = [User.find(request.user_id).first_name,request.item.title].join(" wants to borrow ")
+      = (button_to "Accept?", accepted_borrowing_path(request.id), style: "float: left;margin-right: 10px;", method: :get) 
+      = (button_to "Decline?", declined_borrowing_path(request.id), method: :get)
+%h3 Things you're borrowing( Don't forget to return it! )
+- current_user.borrowings.each do |borrowing|    
+  %p
+  = "You're borrowing " + [Item.find(borrowing.item_id).lender.first_name, Item.find(borrowing.item_id).title].join("'s ")
+  

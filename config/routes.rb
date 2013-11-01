@@ -12,7 +12,9 @@ Stuffwithfriends::Application.routes.draw do
   end
 
 
-resources :items, :only => [:index, :show]
+resources :items, :only => [:index, :show] do
+  post '/borrowings/create', :to => "borrowings#create", as: "create_borrowing"
+end
 
 
   get '/borrowings/:id/accepted', :to => "borrowings#accepted", as: "accepted_borrowing"
