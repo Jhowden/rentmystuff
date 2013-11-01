@@ -7,16 +7,21 @@
         - @item.photos.each do |photo|
           .photo
             =link_to image_tag(photo.file.url(:thumb)), "#{photo.file}", {class: 'fancybox', rel: 'group1'}
+      %h2
+        Description
       %p
         = @item.description
 
   .col-33.cf.item-borrow
-    %span.price
-      Price
     %h2
       = "$" + @item.price.to_s
+    %span
+      For a day
     - if @item.available
-      .availability#datepick
+      = form_tag do
+        = submit_tag 'Rent', :class => 'button is-inverse'
+        = text_field_tag 'start_date', 'From', :id => "from-date-picker"
+        = text_field_tag 'end_date', "To", :id => "to-date-picker"
     - else
       Not Available
 
