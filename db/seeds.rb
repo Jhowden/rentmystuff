@@ -4,17 +4,18 @@ require 'faker'
 
 # User
 10.times do
-User.create(
+user =User.create(
             # provider: string,
             # uid: string,
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
             email: Faker::Internet.email,
-            image_url: "rails.png"
             # facebook_url: Faker::Internet.url,
             # oauth_token: string,
             # oauth_exphotores_at: datetime,
            )
+user.image_url = "rails.png"
+user.save!
 end
 
 # * * * * * * * * * * * * * * *
@@ -57,11 +58,12 @@ end
 # Feedback
 
 10.times do |i|
-  Feedback.create(
-    giver_id: 1+i,
+  feedback = Feedback.create(
     comment: "This is some really good feedback",
     thumbs_up: [true,false].sample
   )
+  feedback.giver_id = 1+i
+  feedback.save!
 end
 
 # * * * * * * * * * * * * * * *
