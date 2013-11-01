@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(params[:item])
+    @item = current_user.lended_items.new(params[:item])
     if params[:photo]
       params[:photo].each do |k,v|
         @item.photos << Photo.create(file: v)

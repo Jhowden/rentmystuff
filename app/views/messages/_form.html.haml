@@ -1,0 +1,22 @@
+= form_for :message, url: reply_user_conversation_path do |f|
+  / = f.text_field :subject
+  = f.text_field :body
+  = f.submit
+/   .form-actions
+/     = f.button :submit, class: 'btn-primary'
+/     = submit_tag 'Cancel', type: :reset, class: 'btn btn-danger'
+
+
+/ = form_for :conversation, url: :user_conversations do |f|
+/   %p
+/     = f.label :recipients
+/     = f.text_field :recipients
+/   %p
+/     = f.label :subject
+/     =f.text_field :subject
+
+/     %p
+/       = f.label :body
+/       = f.text_field :body
+/   %p
+/     = f.submit

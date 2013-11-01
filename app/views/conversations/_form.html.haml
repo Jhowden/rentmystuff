@@ -1,0 +1,13 @@
+= form_for :conversation, url: :user_conversations do |f|
+  %p
+    = f.label :recipients
+    = f.text_field :recipients
+  %p
+    = f.label :subject
+    =f.text_field :subject
+
+    %p
+      = f.label :body
+      = f.text_field :body
+  %p
+    = f.submit
