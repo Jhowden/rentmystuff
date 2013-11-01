@@ -6,11 +6,9 @@
     = f.label :description
     = f.text_area :description
   %p
-    = f.label :start_time
-    = f.date_select :start_time
+    = text_field_tag :start_date,'Available From', :id => 'from-date-picker'
   %p
-    = f.label :end_time
-    = f.date_select :end_time
+    = text_field_tag :end_date, 'To', :id => 'to-date-picker'
   %p
     = f.label :price
     = f.text_field :price

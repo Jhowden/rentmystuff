@@ -4,8 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.boolean :available, default: true
-      t.date :start_time
-      t.date :end_time
+      t.string :available_dates
       t.integer :lender_id
       t.integer :price
 
