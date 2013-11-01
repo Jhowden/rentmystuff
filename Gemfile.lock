@@ -192,12 +192,9 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   carrierwave
-  factory_girl_rails (~> 4.0)
-  faker
-  fancybox2-rails (~> 0.2.4)
-  coffee-rails (~> 3.2.1)
   devise
   factory_girl_rails (~> 4.0)
+  faker
   fancybox2-rails (~> 0.2.4)
   guard
   haml-rails

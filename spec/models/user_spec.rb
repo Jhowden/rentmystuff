@@ -56,7 +56,7 @@ describe User do
 
   describe 'association with borrowings' do
     let(:item) {create(:item)}
-
+  end
     before do
       subject.lended_items << item
     end
