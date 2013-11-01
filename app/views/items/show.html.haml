@@ -1,26 +1,27 @@
-.wrapper
-  .col-66.cf.center
-    .item-show
-      %h1
-        = @item.title
-      .gallery
-        - @item.photos.each do |photo|
-          .photo
-            =link_to image_tag(photo.file.url(:thumb)), "#{photo.file}", {class: 'fancybox', rel: 'group1'}
-      %h2
-        Description
-      %p
-        = @item.description
+.wrapper.cf{:style => "background: url('#{@item.photos.first.file}')"}
+  .overlay.cf
+    .col-66.cf.center
+      .item-show
+        %h1
+          = @item.title
+        .gallery
+          - @item.photos.each do |photo|
+            .photo
+              =link_to image_tag(photo.file.url(:thumb)), "#{photo.file}", {class: 'fancybox', rel: 'group1'}
+        %h2
+          Description
+        %p
+          = @item.description
 
-  .col-33.cf.item-borrow
-    %h2
-      = "$" + @item.price.to_s
-    %span
-      For a day
-    - if @item.available
-      = form_for :borrowing, :html => {"data-inavailable" =>  @item.inavailable_dates, 'data-max' => @item.max_date} do
-        = submit_tag 'Rent', :class => 'button is-inverse'
-        = text_field_tag 'start_date', 'From', :class => "multi-date-picker"
-        = text_field_tag 'end_date', "To", :class => "multi-date-picker"
-    - else
-      Not Available
+    .col-33.cf.item-borrow
+      %h2
+        = "$" + @item.price.to_s
+      %span
+        For a day
+      - if @item.available
+        = form_for :borrowing, :html => {"data-inavailable" =>  @item.inavailable_dates, 'data-max' => @item.max_date} do
+          = submit_tag 'Rent', :class => 'button is-inverse'
+          = text_field_tag 'start_date', 'From', :class => "multi-date-picker"
+          = text_field_tag 'end_date', "To", :class => "multi-date-picker"
+      - else
+        Not Available

@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
 
   def create_dates(ary)
     ary.each do |date|
-      available_dates << RentalDate.create(:date => date)
+      dates << RentalDate.create(:date => date)
     end
   end
 

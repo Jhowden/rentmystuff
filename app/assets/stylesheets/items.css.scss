@@ -1,6 +1,7 @@
 .wrapper{
   margin-top: 50px;
-  background-color: #EFF0E9; 
+  background-size: 100% auto!important;
+  background-position-y: 50%!important;
 }
 
  .item-borrow h2 {
@@ -8,8 +9,21 @@
 }
 
 .item-borrow{
-  background-color: #ECEDE6;
+  background: url('blue-noise.png'); 
   padding: 20px;
+  margin-top:191px!important;
+
+  span{
+    color: 
+  }
+}
+
+.item-show {
+}
+
+.overlay {
+  background: url('bg-noise.png');
+  opacity: .97;
 }
 
 .price {
@@ -53,7 +67,7 @@
   height: 330px; 
   overflow: auto;
   white-space: nowrap;
-  background-color: rgba(64, 74, 84, 1);
+  // background-color: rgba(64, 74, 84, 0.9);
 }
 
 .center {
