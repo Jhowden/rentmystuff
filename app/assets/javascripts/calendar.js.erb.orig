@@ -3,6 +3,10 @@ $(document).ready(function(){
   if (($('form').data('max') != undefined)){
     var max = $('form').data('max');
     var disabled = $('form').data('inavailable').split(' ')
+<<<<<<< HEAD
+=======
+    console.log(disabled)
+>>>>>>> fixed calendar disabled feature
 
     $('.multi-date-picker').datepicker({
       constrainInput: true,

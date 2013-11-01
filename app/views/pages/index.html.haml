@@ -5,12 +5,11 @@
       %h1
         Rent whatever you want in seconds
       
-      = search_form_for @search, :html => { :class => 'search-form', :id => 'form-with-daterange' } do |f|
-        = f.text_field :description_cont, :placeholder => "I'm looking for"
+      = form_tag items_path,:method => 'GET',  :class => 'search-form', :id => 'form-with-daterange' do 
+        = text_field_tag 'q[description_cont]', "I'm looking for"
         = text_field_tag :start_date,'From', :class => 'search-date-picker'
         = text_field_tag :end_date, 'To', :class => 'search-date-picker'
-        = f.hidden_field :available_dates_cont
-        = f.submit 'Search', :class => 'button is-inverse'
+        = submit_tag 'Search', :class => 'button is-inverse'
 
   %section{:class => "story", :id => "second", :data => {:speed => "4", :type => "background"}}
     %article

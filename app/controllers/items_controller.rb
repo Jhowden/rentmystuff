@@ -4,9 +4,7 @@ class ItemsController < ApplicationController
   def index
     if params[:q] 
       parse_search_dates!(params)
-      @search = Item.search(params[:q])
-      @items = @search.result 
-      p params
+      @items = Item.search(params[:q])
     else
       @items = Item.all
     end
@@ -20,6 +18,7 @@ class ItemsController < ApplicationController
   def create
     @item = current_user.lended_items.new(params[:item])
     parse_create_dates!(params)
+    @item.create_dates(parse_create_dates!(params))
     if params[:photo]
       params[:photo].each do |k,v|
         @item.photos << Photo.create(file: v)
