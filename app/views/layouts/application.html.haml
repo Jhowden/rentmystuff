@@ -10,7 +10,7 @@
     %nav
       .nav-header
 
-        = link_to "Rentable", root_path, {:class => "nav_title"}
+        = link_to "Rentable", items_path, {:class => "nav_title"}
       .login-area
         -if current_user
           = "Signed in as " + current_user.first_name + " " + current_user.last_name + ' |'

@@ -18,7 +18,7 @@
     %span
       For a day
     - if @item.available
-      = form_tag do
+      = form_tag(item_create_borrowing_path(@item)) do
         = submit_tag 'Rent', :class => 'button is-inverse'
         = text_field_tag 'start_date', 'From', :id => "from-date-picker"
         = text_field_tag 'end_date', "To", :id => "to-date-picker"

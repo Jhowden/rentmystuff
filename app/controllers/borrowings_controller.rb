@@ -23,4 +23,16 @@ class BorrowingsController < ApplicationController
     redirect_to root_path
   end
 
+  def create
+    @item = Item.find(params[:item_id])
+    @borrowing = Borrowing.new(user_id: current_user.id,
+                               item_id: @item.id)
+    if @borrowing.save!
+      current_user.send_message(@item.lender, "#{current_user.first_name} wants to borrow your #{@item.title}. Go to your dashboard to accept or decline", "Pending Request")
+      redirect_to items_path
+    else
+      render item_path(@item)
+    end
+  end
+
 end
