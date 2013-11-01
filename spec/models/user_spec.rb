@@ -68,6 +68,7 @@ describe User do
       user_2.borrowed_items << item
       subject.pending_requests.should_not be_empty
     end
+  end
 
   describe '.name' do
     it 'validates the name of the person receiving the email' do
