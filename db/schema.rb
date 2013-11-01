@@ -11,14 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131031014550) do
+ActiveRecord::Schema.define(:version => 20131031234317) do
 
   create_table "borrowings", :force => true do |t|
     t.integer  "user_id"
     t.integer  "item_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "feedback_id"
+    t.string   "dates"
+    t.string   "status",      :default => "pending"
   end
 
   create_table "feedbacks", :force => true do |t|
