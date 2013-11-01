@@ -13,6 +13,7 @@
         = link_to "Rentable", items_path, {:class => "nav_title"}
       .login-area
         -if current_user
+          = link_to "Messages " + current_user.mailbox.inbox.count.to_s, user_conversations_path(current_user)
           = "Signed in as " + current_user.first_name + " " + current_user.last_name + ' |'
           =link_to "Sign out", '/logout'
         -else 
