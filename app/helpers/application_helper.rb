@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+
   def notice
     flash[:notice]
   end
@@ -7,4 +8,5 @@ module ApplicationHelper
   def alerrt
     flash[:alert]
   end
+
 end

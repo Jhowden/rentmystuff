@@ -1,0 +1,13 @@
+module ApplicationHelper
+
+<<<<<<< HEAD
+  def notice
+    flash[:notice]
+  end
+
+  def alerrt
+    flash[:alert]
+  end
+=======
+>>>>>>> changed schema to accomodate search, visitors can  search with date range, user can add available date range
+end

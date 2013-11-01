@@ -16,8 +16,12 @@ class ItemsController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
     @item = current_user.lended_items.new(params[:item])
+=======
     parse_create_dates!(params)
+    @item = Item.new(params[:item])
+>>>>>>> changed schema to accomodate search, visitors can  search with date range, user can add available date range
     if params[:photo]
       params[:photo].each do |k,v|
         @item.photos << Photo.create(file: v)

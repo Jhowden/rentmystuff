@@ -40,13 +40,12 @@ ActiveRecord::Schema.define(:version => 20131031234317) do
   create_table "items", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "available",   :default => true
-    t.date     "start_time"
-    t.date     "end_time"
+    t.boolean  "available",       :default => true
+    t.string   "available_dates"
     t.integer  "lender_id"
     t.integer  "price"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "notifications", :force => true do |t|
