@@ -134,8 +134,8 @@ nav a {
 #first, #third, #fifth, #seventh { height:900px }
 
 .story { 
-  // border: 1px solid black;
-  background-color: #EFF0E9;
+  border: 1px solid rgba(64, 74, 84, 0.3);
+  background: url('bg-noise.png');
   margin: 0; 
   padding: 50px;
   width: 100%; 
@@ -163,7 +163,7 @@ nav a {
 
 footer.story {
   height:200px;
-  background-color: rgba(64, 74, 84, 0.7);
+  background: rgba(64, 74, 84, 0.7);
   clear:both;
 }
 

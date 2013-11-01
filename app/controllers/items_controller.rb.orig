@@ -5,9 +5,11 @@ class ItemsController < ApplicationController
     if params[:q] 
       parse_search_dates!(params)
       @search = Item.search(params[:q])
+      @items = @search.result 
+      p params
+    else
+      @items = Item.all
     end
-
-    @items = @search.result 
 
   end
 
@@ -18,10 +20,11 @@ class ItemsController < ApplicationController
   def create
 <<<<<<< HEAD
     @item = current_user.lended_items.new(params[:item])
-=======
     parse_create_dates!(params)
+=======
     @item = Item.new(params[:item])
->>>>>>> changed schema to accomodate search, visitors can  search with date range, user can add available date range
+    @item.create_dates(parse_create_dates!(params))
+>>>>>>> added rental_dates table, associated with item and borrowing
     if params[:photo]
       params[:photo].each do |k,v|
         @item.photos << Photo.create(file: v)

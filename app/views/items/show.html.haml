@@ -18,7 +18,7 @@
     %span
       For a day
     - if @item.available
-      = form_for :borrowing, :html => {"data-inavailable" =>  @item.inavailable_dates, 'data-available' => @item.available_dates} do
+      = form_for :borrowing, :html => {"data-inavailable" =>  @item.inavailable_dates, 'data-max' => @item.max_date} do
         = submit_tag 'Rent', :class => 'button is-inverse'
         = text_field_tag 'start_date', 'From', :class => "multi-date-picker"
         = text_field_tag 'end_date', "To", :class => "multi-date-picker"
