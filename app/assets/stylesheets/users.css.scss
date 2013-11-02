@@ -5,3 +5,57 @@
   background-size: 100% auto!important;
   background-position-y: 50%!important;
 }
+
+#nav_tabs li {
+  display: inline-block;
+  margin:0 15px;
+  padding:0 5px;
+}
+
+#nav_tabs a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+.tabs {
+  padding-bottom:0px;
+  height: 30px;
+  padding-left: 0
+}
+
+.tabs ul {
+  padding-left: 0;
+  border-bottom: 1px solid $primary-color;
+
+}
+
+#nav_tabs {
+  margin-top: 70px;
+  text-align: left;
+}
+
+#nav_tabs li.active {
+  border: 1px solid $primary-color;
+  border-bottom: 1px solid $secondary-color;
+}
+
+.divs {
+  margin-top:30px;
+  margin-bottom: 100px;
+  color: $primary-color;
+}
+
+h4 {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.lended_item_list_title {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.lended_item_list {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
