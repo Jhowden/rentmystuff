@@ -1,29 +1,61 @@
-.wrapper
-  .col-66.cf.center
-    .item-show
-      %h1
-        = @item.title
-      .gallery
-        - @item.photos.each do |photo|
-          .photo
-            =link_to image_tag(photo.file.url(:thumb)), "#{photo.file}", {class: 'fancybox', rel: 'group1'}
-      %h2
-        Description
-      %p
-        = @item.description
+.wrapper.cf{:style => "background: url('#{@item.photos.first.file}')"}
+  .overlay.cf
+    .col-66.cf.center
+      .item-show
+        .header
+          %h1
+            = @item.title
+          %h4
+            By #{ link_to @item.lender.display_name, user_path(@item.lender)}
+        #galleria
+          - @item.photos.each do |photo|
+            =link_to image_tag(photo.file), "#{photo.file}"
+        
+        #nav-tabs
+          .tabs
+            %ul
+              %li
+                = link_to 'Description', '#description'
+              %li
+                = link_to 'Feedback', '#feedback'
+              %li
+                = link_to 'Map view', '#map'
+          .divs
+            #description
+              = @item.description
+            #feedback
+              "THIS SUCKS. IT'S SO NOT BANANAS"
+            #map
+              "LOL NO MAP HERE"
 
-  .col-33.cf.item-borrow
-    %h2
-      = "$" + @item.price.to_s
-    %span
-      For a day
-    - if @item.available
-      = form_tag do
-        = submit_tag 'Rent', :class => 'button is-inverse'
-        = text_field_tag 'start_date', 'From', :id => "from-date-picker"
-        = text_field_tag 'end_date', "To", :id => "to-date-picker"
-    - else
-      Not Available
+    .col-33.cf.item-borrow
+      %h1
+        Rent it now
+      %h2
+        = "$" + @item.price.to_s
+      %span
+        For a day
+      - if @item.available
+        = form_for :borrowing, :html => {"data-inavailable" =>  @item.inavailable_dates, 'data-max' => @item.max_date} do
+          = submit_tag 'Rent', :class => 'button is-inverse'
+          = text_field_tag 'start_date', 'From', :class => "multi-date-picker"
+          = text_field_tag 'end_date', "To", :class => "multi-date-picker"
+      %h2.or
+        Or
+      = link_to "Message", new_user_conversation_path(current_user), :class => 'button is-inverse wide'
+      %span.owner
+        The product owner
 
 :javascript
-    $('#datepick').datepicker();
+  Galleria.loadAssetTheme('classic');
+
+  Galleria.configure({
+    imageCrop: true,
+    transition: 'slide',
+    log: true,
+    lightbox: true,
+    dummy: '/assets/photos/dummy.png' 
+  });  
+
+  Galleria.run('#galleria');
+  Galleria.run('#galleria');

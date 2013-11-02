@@ -1,6 +1,14 @@
 class ItemsController < ApplicationController
+  include ItemsHelper
+  
   def index
-    @items = Item.order("updated_at DESC")
+    if params[:q] 
+      parse_search_dates!(params)
+      @items = Item.search(params[:q])
+    else
+      @items = Item.all
+    end
+
   end
 
   def new
@@ -9,6 +17,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.lended_items.new(params[:item])
+    parse_create_dates!(params)
+    @item.create_dates(parse_create_dates!(params))
     if params[:photo]
       params[:photo].each do |k,v|
         @item.photos << Photo.create(file: v)

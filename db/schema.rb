@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131031234317) do
+
+ActiveRecord::Schema.define(:version => 20131101144802) do
 
   create_table "borrowings", :force => true do |t|
     t.integer  "user_id"
@@ -19,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20131031234317) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.integer  "feedback_id"
-    t.string   "dates"
     t.string   "status",      :default => "pending"
   end
 
@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(:version => 20131031234317) do
     t.string   "title"
     t.text     "description"
     t.boolean  "available",   :default => true
-    t.date     "start_time"
-    t.date     "end_time"
     t.integer  "lender_id"
     t.integer  "price"
     t.datetime "created_at",                    :null => false
@@ -89,6 +87,12 @@ ActiveRecord::Schema.define(:version => 20131031234317) do
   end
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
+
+  create_table "rental_dates", :force => true do |t|
+    t.date    "date"
+    t.integer "dateable_id"
+    t.string  "dateable_type"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "provider"

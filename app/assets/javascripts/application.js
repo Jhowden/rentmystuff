@@ -11,6 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require fancybox
 //= require jquery_ujs
+//= require jquery.tabify
+//= require gallery/galleria
+//= require gallery/galleria/classic
+//= require mixitup/jquery.mixitup.min
 //= require_tree .
