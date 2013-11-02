@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131101144802) do
+ActiveRecord::Schema.define(:version => 20131102201306) do
 
   create_table "borrowings", :force => true do |t|
     t.integer  "user_id"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20131101144802) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.integer  "feedback_id"
-    t.string   "dates"
     t.string   "status",      :default => "pending"
   end
 
@@ -41,8 +40,6 @@ ActiveRecord::Schema.define(:version => 20131101144802) do
     t.string   "title"
     t.text     "description"
     t.boolean  "available",   :default => true
-    t.date     "start_time"
-    t.date     "end_time"
     t.integer  "lender_id"
     t.integer  "price"
     t.datetime "created_at",                    :null => false
@@ -108,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20131101144802) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.text     "about"
   end
 
   add_foreign_key "notifications", "conversations", name: "notifications_on_conversation_id"
