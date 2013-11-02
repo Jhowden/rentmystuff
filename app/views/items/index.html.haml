@@ -1,4 +1,22 @@
 .wrapper
-  - @items.each do |item|
-    %p
-      = link_to item.title, item_path(item)
+  .search-bar
+    %ul
+      %li.sort{:data => {:sort => 'data-price'}}
+        %a{:href => '#'}
+          Price 
+      %li.sort{:data => {:sort => 'data-title'}}
+        %a{:href => '#'}
+          Title
+      %li.sort{:data => {:sort => 'default'}}
+        %a{:href => '#'}
+          AWESOME
+      %li 
+        YEAP
+      %li 
+        HEY
+  %ul#Grid
+    - @items.each do |item|
+      %li.mix.items{:data => {:price => "#{item.price}", :title => "#{item.title}"}}
+        = item.title
+        = item.price
+        = image_tag item.photos.first.file.url(:thumb)

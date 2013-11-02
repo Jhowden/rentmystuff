@@ -10,8 +10,11 @@
  *
  *= require css-social-buttons/social-buttons
  *= require buttons/css/kanso
- *= require fancybox
+ *= require gallery/galleria/classic
  *= require ukus-theme/jquery-ui-1.10.3.custom
  *= require_self
  *= require_tree .
- */
+*/
+
+$primary-color: #292B2E;
+$secondary-color: #EAEAEA;
