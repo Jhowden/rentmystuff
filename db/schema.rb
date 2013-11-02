@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20131101144802) do
 
   create_table "borrowings", :force => true do |t|

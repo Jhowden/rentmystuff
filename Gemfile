@@ -29,6 +29,7 @@ gem 'jquery-rails'
 # gem 'fancybox-rails'
 gem 'fancybox2-rails', '~> 0.2.4'
 gem 'omniauth-facebook'
+gem 'rails-gallery'
 
 gem 'ransack'
 
