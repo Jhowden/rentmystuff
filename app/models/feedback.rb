@@ -1,5 +1,5 @@
 class Feedback < ActiveRecord::Base
-  attr_accessible :comment, :thumbs_up
+  attr_accessible :comment, :thumbs_up, :giver_id
 
   validates :thumbs_up, :inclusion => {:in => [true,false]}
   validates_presence_of :comment

@@ -1,0 +1,9 @@
+.feedback_box
+  - if @feedback.thumbs_up
+    = image_tag "thumbs_up.jpg"
+  - else
+    = image_tag "thumbs_down.jpg"
+  %p
+    = @feedback.comment
+  %p
+    = " - " + @feedback.giver.first_name + " " + @feedback.giver.last_name + " at " + @feedback.created_at.strftime("%m/%d/%y")

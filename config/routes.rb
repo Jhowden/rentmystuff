@@ -14,6 +14,7 @@ Stuffwithfriends::Application.routes.draw do
 
 resources :items, :only => [:index, :show] do
   post '/borrowings/create', :to => "borrowings#create", as: "create_borrowing"
+  post '/feedbacks/create', :to => "feedbacks#create", as: "create_feedback"
 end
 
 
