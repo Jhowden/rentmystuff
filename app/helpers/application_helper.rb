@@ -8,5 +8,4 @@ module ApplicationHelper
   def alerrt
     flash[:alert]
   end
-
 end
