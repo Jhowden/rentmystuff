@@ -24,7 +24,28 @@
             #description
               = @item.description
             #feedback
-              "THIS SUCKS. IT'S SO NOT BANANAS"
+              = form_for [@item, @feedback], url: item_create_feedback_path(@item), html: {class: "feedback_form"} do |f|
+                %p
+                  = f.text_area :comment, size: "60x12", placeholder: "Leave feedback"
+                = f.radio_button(:thumbs_up, "up")
+                = f.label(:thumbs_up_up, "Thumbs Up")
+                = f.radio_button(:thumbs_up, "down")
+                = f.label(:thumbs_up_down, "Thumbs Down")
+                %p
+                  = f.submit
+              - if @item.received_feedbacks.count > 0
+                %p{id: 'feedback_received_title'}
+                  Feedback received:
+                - @item.received_feedbacks.each do |feedback|
+                  .feedback_box
+                    - if feedback.thumbs_up
+                      = image_tag "thumbs_up.jpg"
+                    - else
+                      = image_tag "thumbs_down.jpg"
+                    %p
+                      = feedback.comment
+                    %p
+                      = " - " + feedback.giver.first_name + " " + feedback.giver.last_name + " at " + feedback.created_at.strftime("%m/%d/%y")
             #map
               "LOL NO MAP HERE"
 
