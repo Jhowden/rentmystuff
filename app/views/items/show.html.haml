@@ -33,9 +33,9 @@
                 = f.label(:thumbs_up_down, "Thumbs Down")
                 %p
                   = f.submit
+              %p{id: 'feedback_received_title'}
+                Feedback received:
               - if @item.received_feedbacks.count > 0
-                %p{id: 'feedback_received_title'}
-                  Feedback received:
                 - @item.received_feedbacks.each do |feedback|
                   .feedback_box
                     - if feedback.thumbs_up
