@@ -3,6 +3,7 @@ $(document).ready(function(){
   if (($('#rent-form').data('max') != undefined)){
     var max = $('#rent-form').data('max');
     var disabled = $('#rent-form').data('inavailable').split(' ')
+    console.log($("#rent-form"))
 
     $('.multi-date-picker').datepicker({
       constrainInput: true,
