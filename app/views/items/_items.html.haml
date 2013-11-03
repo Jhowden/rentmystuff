@@ -1,0 +1,11 @@
+%ul#Grid
+  - @items.each do |item|
+    %a{:href => "#{item_path(item.id)}"}
+      %li.mix.item{:data => {:price => "#{item.price}", :title => "#{item.title}"}}
+        = image_tag item.photos.first.file.url
+        %span.title
+          = item.title
+        %br
+        %span
+          = item.price.to_s + "$"
+          per day

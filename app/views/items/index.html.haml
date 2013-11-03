@@ -1,22 +1,33 @@
-.wrapper
-  .search-bar
-    %ul
+.container.cf
+  .search-bar.cf
+    .col-66
+      %h3
+        Search
+      = form_tag items_path,:method => 'GET',  :class => 'search-form item-search-form', :id => 'form-with-daterange' do 
+        = text_field_tag 'q[description_cont]', "I'm looking for"
+        = text_field_tag :start_date,'From', :class => 'search-date-picker'
+        = text_field_tag :end_date, 'To', :class => 'search-date-picker'
+        = submit_tag 'Search', :class => 'button is-inverse'
+    %ul.col-33.sorting
+      %h3
+        Sort by
       %li.sort{:data => {:sort => 'data-price'}}
-        %a{:href => '#'}
+        %a.button.is-inverse{:href => '#'}
           Price 
       %li.sort{:data => {:sort => 'data-title'}}
-        %a{:href => '#'}
+        %a.button.is-inverse{:href => '#'}
           Title
       %li.sort{:data => {:sort => 'default'}}
-        %a{:href => '#'}
+        %a.button.is-inverse{:href => '#'}
           AWESOME
-      %li 
-        YEAP
-      %li 
-        HEY
   %ul#Grid
     - @items.each do |item|
-      %li.mix.items{:data => {:price => "#{item.price}", :title => "#{item.title}"}}
-        = item.title
-        = item.price
-        = image_tag item.photos.first.file.url(:thumb)
+      %a{:href => "#{item_path(item.id)}"}
+        %li.mix.item{:data => {:price => "#{item.price}", :title => "#{item.title}"}}
+          = image_tag item.photos.first.file.url
+          %span.title
+            = item.title
+          %br
+          %span
+            = item.price.to_s + "$"
+            per day

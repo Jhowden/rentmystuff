@@ -104,7 +104,7 @@ nav a {
   font-size: 30px;
   font-style:italic
 }
-  
+
 #ui-datepicker-div {
   font-size: 14px
 }
@@ -151,12 +151,10 @@ nav a {
 
 }
 
-footer.story {
+footer {
   height:100px;
   background: $primary-color; 
   clear:both;
-  position:fixed;
-  bottom:0;
 
 }
 
@@ -172,10 +170,10 @@ footer li {
 
 .cf:before,
 .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 
 .cf:after {
-    clear: both;
+  clear: both;
 }
