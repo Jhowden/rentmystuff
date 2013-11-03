@@ -24,27 +24,28 @@
             #description
               = @item.description
             #feedback
-              - if @item.feedback_percentage > 70
-                = image_tag "thumbs_up.png"
-              - elsif @item.feedback_percentage < 70
-                = image_tag "thumbs_down.png"
-              = @item.feedback_percentage
-              \% of borrowers had a positive experience
-              %br
-              %br
-              %a.button.is-inverse#show-feedback
-                Leave feedback
-              = form_for [@item, @feedback], url: item_create_feedback_path(@item), html: {class: "feedback_form"} do |f|
-                %p
-                  = f.text_area :comment, size: "60x6", placeholder: "Leave feedback"
-                = f.radio_button(:thumbs_up, "up")
-                = f.label(:thumbs_up_up, "Thumbs Up")
-                = f.radio_button(:thumbs_up, "down")
-                = f.label(:thumbs_up_down, "Thumbs Down")
-                %p
-                  = f.submit "Submit", :class => 'button is-inverse'
-              - if @feedbacks.count > 0
-                = render @feedbacks
+              - if @feedbacks
+                - if @item.feedback_percentage > 70
+                  = image_tag "thumbs_up.png"
+                - elsif @item.feedback_percentage < 70
+                  = image_tag "thumbs_down.png"
+                = @item.feedback_percentage
+                \% of borrowers had a positive experience
+                %br
+                %br
+                %a.button.is-inverse#show-feedback
+                  Leave feedback
+                = form_for [@item, @feedback], url: item_create_feedback_path(@item), html: {class: "feedback_form"} do |f|
+                  %p
+                    = f.text_area :comment, size: "60x6", placeholder: "Leave feedback"
+                  = f.radio_button(:thumbs_up, "up")
+                  = f.label(:thumbs_up_up, "Thumbs Up")
+                  = f.radio_button(:thumbs_up, "down")
+                  = f.label(:thumbs_up_down, "Thumbs Down")
+                  %p
+                    = f.submit "Submit", :class => 'button is-inverse'
+                - if @feedbacks.count > 0
+                  = render @feedbacks
             #map
               "LOL NO MAP HERE"
 
@@ -56,15 +57,16 @@
       %span
         For a day
       - if @item.available
-        = form_for :borrowing, :html => {"data-inavailable" =>  @item.inavailable_dates, 'data-max' => @item.max_date} do
+        = form_for :borrowing, :html => {"data-inavailable" =>  @item.inavailable_dates, 'data-max' => @item.max_date, :id => ""} do
           = submit_tag 'Rent', :class => 'button is-inverse'
           = text_field_tag 'start_date', 'From', :class => "multi-date-picker"
           = text_field_tag 'end_date', "To", :class => "multi-date-picker"
       %h2.or
         Or
-      = link_to "Message", new_user_conversation_path(current_user), :class => 'button is-inverse wide'
+      = link_to_modal "Message", '#message-dialog', :class => "button is-inverse wide"
       %span.owner
         The product owner
+  = render 'message_dialog'
 
 :javascript
   Galleria.loadAssetTheme('classic');

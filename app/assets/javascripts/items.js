@@ -5,6 +5,7 @@ $(document).ready(function() {
 
   $('#Grid').mixitup();
 
+
   var varCount = 1
   //remove a textfield
   $('form').on('click', '.removeVar', function(){
