@@ -7,8 +7,8 @@
 / %ul= render mailbox.trash
 
 / = link_to 'Start Conversation', :new_conversation
-
-- current_user.mailbox.inbox.each do |conversation|
-  - conversation.messages.each do |message|
-    %p
-      = link_to "Subject: " + message.subject, user_conversation_path(current_user, message.conversation)
+.wrapper
+  - current_user.mailbox.inbox.each do |conversation|
+    - conversation.messages.each do |message|
+      %p
+        = link_to "Subject: " + message.subject, user_conversation_path(current_user, message.conversation)
