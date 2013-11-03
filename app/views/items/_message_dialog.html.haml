@@ -1,0 +1,9 @@
+#message-dialog
+  %h2
+    Send a message to
+    = @item.lender.display_name
+  = form_for :conversation, :url => user_conversations_path(current_user) do |f|
+    = f.hidden_field :recipients, :value => @item.lender.email
+    = f.text_field :subject,  :class => 'txt'
+    = f.text_area :body, :class => 'txtarea'
+    = f.submit "Send message", :id => 'send', :class => "button is-inverse"

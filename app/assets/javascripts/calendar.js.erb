@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-  if (($('form').data('max') != undefined)){
-    var max = $('form').data('max');
-    var disabled = $('form').data('inavailable').split(' ')
+  if (($('#rent-form').data('max') != undefined)){
+    var max = $('#rent-form').data('max');
+    var disabled = $('#rent-form').data('inavailable').split(' ')
 
     $('.multi-date-picker').datepicker({
       constrainInput: true,

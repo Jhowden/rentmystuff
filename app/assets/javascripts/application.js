@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.tabify
+//= require jquery.modal
 //= require gallery/galleria
 //= require gallery/galleria/classic
 //= require mixitup/jquery.mixitup.min
+//= require fancybox
 //= require_tree .
