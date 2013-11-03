@@ -1,6 +1,6 @@
 Stuffwithfriends::Application.routes.draw do
   
-  resources :users, :only => [:show] do
+  resources :users, :only => [:show, :update] do
     resources :items, :only => [:new, :edit, :create, :update, :delete]
     resources :conversations, :only => [:index, :show, :new, :create] do
       member do

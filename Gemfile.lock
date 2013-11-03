@@ -81,6 +81,11 @@ GEM
     httpauth (0.2.0)
     i18n (0.6.5)
     journey (1.0.4)
+    jquery-modal-rails (0.0.3)
+      jquery-ui-rails
+      railties (>= 3.2.0, < 5.0)
+      thor (~> 0.14)
+      uuidtools
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -191,6 +196,7 @@ GEM
     uglifier (2.3.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.4)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -207,6 +213,7 @@ DEPENDENCIES
   fancybox2-rails (~> 0.2.4)
   guard
   haml-rails
+  jquery-modal-rails
   jquery-rails
   jquery-ui-rails
   mailboxer
