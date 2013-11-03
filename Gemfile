@@ -10,7 +10,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-ui-rails'
   gem 'jquery-rails'
-  gem 'rails-gallery'
   gem 'fancybox2-rails', '~> 0.2.4'
 end
 
@@ -34,3 +33,4 @@ gem 'mailboxer'
 gem 'devise'
 gem 'haml-rails'
 gem 'jquery-modal-rails'
+gem 'rails-gallery'
