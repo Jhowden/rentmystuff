@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email
+  attr_accessible :first_name, :last_name, :email, :image_url
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true

@@ -1,91 +1,79 @@
-# SEEDS 1.0 - BETA
-
 require 'faker'
 
-# User
-10.times do
-user =User.create(
-            # provider: string,
-            # uid: string,
-            first_name: Faker::Name.first_name,
-            last_name: Faker::Name.last_name,
-            email: Faker::Internet.email,
-            # facebook_url: Faker::Internet.url,
-            # oauth_token: string,
-            # oauth_exphotores_at: datetime,
-           )
-user.image_url = "rails.png"
-user.save!
+photo_urls = ['camera.jpg', 'camera1.jpg', 'bike.jpg', 'guitar.jpg', 'volkswagen.jpg']
+
+
+50.times do
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    image_url: 'rails.png'
+    )
 end
 
-# * * * * * * * * * * * * * * *
 
-# Item
-20.times do
+dates = (Date.new(2013, 11, 2)...Date.new(2013,12,3)).to_a
 
-day_generator = (4..20).to_a.sample
-day_increment = day_generator + (1..3).to_a.sample
-Item.create(
-            title: Faker::Commerce.product_name,
-            description: Faker::Lorem.paragraph,
-            price: [5,10,15,20].sample,
-            available: [true, false].sample,
-            start_time:  Date.new(2013,11,day_generator),
-            end_time: Date.new(2013,11,day_increment),
-            # lender_id: (1..50).to_a.sample
-           )
+
+User.all.each do |user|
+  rand(1..10).times do
+
+    user.lended_items.create(
+      title: Faker::Commerce.product_name,
+      description: Faker::Lorem.paragraph,
+      price: [5,10,15,20].sample,
+      available: [true, false].sample
+      )
+  end
+
+  rand(1..20).times do
+    item = Item.all.sample
+    user.borrowed_items << item unless user.borrowed_items.include?(item)
+  end
+
 end
 
-# * * * * * * * * * * * * * * *
+Item.all.each do |item|
 
-# # Photo
-# 20.times do |i|
+  rand(4..10).times do 
 
-# photo = Photo.create!(:product => product)
-# photo.image.store!(File.open(File.join(Rails.root, 'rails.png')))
-# product.product_images << photo
-# product.save!
+    feedback = Feedback.create(
+      comment: Faker::Lorem.sentences(3),
+      thumbs_up: [true,false].sample,
+      giver_id: User.all.sample.id
+      )
 
-# Photo.create(
+    item.received_feedbacks << feedback
+  end
 
-#               file: File.open("../app/assets/images/rails.png"),
-#               item_id: i+1
-#               )
-# end
+  rand(1..20).times do
+    date = RentalDate.create(date: dates.sample)
+    item.dates << date unless item.dates.include?(date)
+  end
 
-# * * * * * * * * * * * * * * *
-
-# Feedback
-
-10.times do |i|
-  feedback = Feedback.create(
-    comment: "This is some really good feedback",
-    thumbs_up: [true,false].sample
-  )
-  feedback.giver_id = 1+i
-  feedback.save!
+  rand(3..5).times do
+    photo = Photo.create!
+    photo.file.store!(File.open(File.join(Rails.root, photo_urls.sample)))
+    item.photos << photo
+  end
 end
 
-# * * * * * * * * * * * * * * *
-
-two_items_counter = 1
-10.times do |i|
-
-    User.find(i+1).lended_items << Item.find(two_items_counter)
-    two_items_counter+=1
-    User.find(i+1).borrowed_items << Item.find(two_items_counter)
-    two_items_counter+=1
-
+Borrowing.all.each do |b|
+  rand(1..10).times do
+    date = RentalDate.create(date: dates.sample)
+    b.dates << date unless b.dates.include?(date)
+  end
 end
 
 
 
 
-10.times do |i|
-item = Item.find(i+1)
-item.received_feedbacks << Feedback.find(i+1)
 
-end
+
+
+
+
 
 
 

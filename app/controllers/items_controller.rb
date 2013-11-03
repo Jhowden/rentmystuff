@@ -6,9 +6,8 @@ class ItemsController < ApplicationController
       parse_search_dates!(params)
       @items = Item.search(params[:q])
     else
-      @items = Item.all
+      @items = Item.limit(20)
     end
-
   end
 
   def new
