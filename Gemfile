@@ -7,7 +7,6 @@ gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'haml-rails'
   gem 'jquery-modal-rails'
 
   gem 'uglifier', '>= 1.0.3'
@@ -35,3 +34,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mailboxer'
 gem 'devise'
+gem 'haml-rails'
