@@ -10,4 +10,10 @@ class Borrowing < ActiveRecord::Base
   def pending?
     status =='pending'
   end
+
+  def create_dates(ary)
+    ary.each do |date|
+      dates << RentalDate.create(:date => date)
+    end
+  end
 end

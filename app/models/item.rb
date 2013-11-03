@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
   def self.search(q)
     desc = "%#{q[:description_cont]}%"
     daterange = q[:dates]
-    self.where("items.description LIKE ? ", desc ).joins(:dates).where("rental_dates.date" => daterange).uniq.limit(20)
+    self.where("items.description LIKE ? or items.title LIKE ? ", desc, desc ).joins(:dates).where("rental_dates.date" => daterange).uniq.limit(20)
   end
 
   def inavailable_dates
