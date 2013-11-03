@@ -11,6 +11,10 @@ group :assets do
   gem 'jquery-modal-rails'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-ui-rails'
+  gem 'jquery-rails'
+  gem 'rails-gallery'
+  gem 'fancybox2-rails', '~> 0.2.4'
 end
 
 group :development do
@@ -25,18 +29,9 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 
-gem 'jquery-ui-rails'
-gem 'jquery-rails'
-# gem 'fancybox-rails'
-gem 'fancybox2-rails', '~> 0.2.4'
 gem 'omniauth-facebook'
-gem 'rails-gallery'
-
 gem 'ransack'
-
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'mailboxer'
-
 gem 'devise'
-
