@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @feedback = Feedback.new
+    @feedbacks = @item.received_feedbacks.order("created_at DESC")
   end
 
   def edit
