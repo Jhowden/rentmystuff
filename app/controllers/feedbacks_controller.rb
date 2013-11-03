@@ -13,7 +13,7 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       @item.received_feedbacks << @feedback
       if request.xhr?
-        render "_feedback", layout: false
+        render @feedback
       else
         redirect_to item_path(@item)
       end

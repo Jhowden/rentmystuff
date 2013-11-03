@@ -36,6 +36,14 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def feedback_percentage
+    ((received_feedbacks.where(:thumbs_up => true).count / received_feedbacks.count.to_f)*100).round
+  end
+
+  def feedback_positive?
+    feedback_percentage > 70
+  end
+
   private
 
   def available_dates
