@@ -135,7 +135,7 @@
 
 }
 
-#nav-tabs {
+.nav-tab-area {
   margin-top: 70px;
   text-align: left;
 }
@@ -175,12 +175,12 @@
   display: none;
 }
 
-.feedback_form input[type=radio] {
+#feedback_form input[type=radio], #first_feedback_form input[type=radio] {
   height: auto;
   width: auto;
 }
 
-.feedback_form{
+#feedback_form, #first_feedback_form{
   display:none;
 }
 
@@ -198,6 +198,8 @@
   }
 
 }
+
+
 
 #feedback img{
   width:20px;
