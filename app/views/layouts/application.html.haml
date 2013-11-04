@@ -7,10 +7,13 @@
 
     = csrf_meta_tags 
   %body
-    %nav
+    %nav          
       .nav-header
 
         = link_to "Rentable", items_path, {:class => "nav_title"}
+      .create-link
+        -if current_user
+          = link_to "List an Item!", new_user_item_path(current_user), method: :get
       .login-area
         -if current_user
           = link_to "Messages " + current_user.mailbox.inbox.count.to_s, user_conversations_path(current_user)
