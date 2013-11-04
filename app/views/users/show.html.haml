@@ -1,43 +1,21 @@
 .wrapper 
-  =@user.first_name + " " + @user.last_name + '\'s Profile Page'
-  %br
-  %br
-  =image_tag @user.image_url
-  %br
-  %br
-  ='Email: ' + @user.email
-  %br
-  #about-me
-    = 'About Me: ' + @user.about if @user.about
-  %br
-  %br
-  - if current_user.id == @user.id
-    %div#show_form_button
-      = button_to 'Update Info'
-    %div#change_about
-      = render "about_me_form"
+  %header.user
+    =image_tag @user.image_url
+    %h2
+      = @user.display_name
+    %h5
+      =@user.email
 
-  - if @user.lended_items.empty?
-    %h6 
-      = @user.first_name + " currently has no lended items."
-  - else
-    %h4
-      = "Items that " + @user.first_name + " are currently lending out:"
-      %h6{:class => "lended_item_list_title"} 
-        %ul{:class => "lended_item_list"}
-          - @user.lended_items.each do |lended_item|
+    - if current_user.id == @user.id
+      #nav_tabs
+        .tabs
+          %ul
+            %li.active
+              = link_to "About me", "#about-me"
             %li
-              = lended_item.title
-      
-  - if current_user.id == @user.id
-    #nav_tabs
-      .tabs
-        %ul
-          %li
-            = link_to "Pending Transactions", "#pending_trans"
-          %li
-            = link_to "Borrowed Items", "#borrowed_items"
-
+              = link_to "Pending Transactions", "#pending_trans"
+            %li
+              = link_to "Borrowed Items", "#borrowed_items"
       .divs
         #pending_trans
           %h3 Your pending transactions:
@@ -53,3 +31,24 @@
           - current_user.borrowings.each do |borrowing|    
             %p
             = "You're borrowing " + [Item.find(borrowing.item_id).lender.first_name, Item.find(borrowing.item_id).title].join("'s ")
+        #about-me
+          = 'About Me: ' + @user.about if @user.about
+          - if current_user.id == @user.id
+            %div#show_form_button
+              = button_to 'Update Info', :class => "button is-default"
+            %div#change_about
+              = render "about_me_form"
+
+          - if @user.lended_items.empty?
+            %h6 
+            = @user.first_name + " currently has no lended items."
+          - else
+            %h4
+              = "Items that " + @user.first_name + " are currently lending out:"
+            %ul{:class => "lended_item_list"}
+              - @user.lended_items.each do |lended_item|
+                %li
+                  = lended_item.title
+
+
+      

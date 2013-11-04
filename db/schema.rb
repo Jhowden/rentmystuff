@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20131102201306) do
     t.string   "title"
     t.text     "description"
     t.boolean  "available",   :default => true
+    t.date     "start_time"
+    t.date     "end_time"
     t.integer  "lender_id"
     t.integer  "price"
     t.datetime "created_at",                    :null => false

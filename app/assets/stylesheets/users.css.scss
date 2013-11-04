@@ -29,8 +29,14 @@
 
 }
 
+#about-me {
+  float:left;
+  width:40%;
+  margin-left: 20px;
+}
+
 #nav_tabs {
-  margin-top: 70px;
+  margin-top: 20px;
   text-align: left;
 }
 
@@ -58,4 +64,32 @@ h4 {
 .lended_item_list {
   margin-top: 0;
   margin-bottom: 5px;
+}
+
+header.user {
+  background-color: darken($secondary-color, 10%);
+  text-align: center;
+  height:100px;
+  margin-bottom: 50px;
+  img{
+    display: inline;
+    position: relative;
+    top:25px;
+    right:20px;
+  }
+
+  h5 {
+    margin-top: 10px;
+    position: relative;
+    left:25px;
+    bottom:10px;
+    font-weight: normal;
+  }
+
+  h2{
+    display: inline;
+    position: relative;
+    right:5px;
+    top:5px;
+  }
 }

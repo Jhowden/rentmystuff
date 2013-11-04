@@ -8,6 +8,17 @@
   background-color: darken($secondary-color, 10%);
 }
 
+.search {
+  width:40%;
+
+  input{
+    margin-top: 10px;
+  }
+}
+
+.sorting{
+  width:30%;
+}
 .container{
   min-height: 90%;
   background-color: $secondary-color;
@@ -17,10 +28,6 @@
   list-style-type: none;
   display: inline-block;
   margin-top: 20px;
-
-  a {
-    width: 120px;
-  }
 }
 
 .sort.active a{
