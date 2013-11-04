@@ -6,23 +6,28 @@
         Rent whatever you want in seconds
       
       = form_tag items_path,:method => 'GET',  :class => 'search-form', :id => 'form-with-daterange' do 
-        = text_field_tag 'q[description_cont]', "I'm looking for"
-        = text_field_tag :start_date,'From', :class => 'search-date-picker'
-        = text_field_tag :end_date, 'To', :class => 'search-date-picker'
+        = text_field_tag 'q[description_cont]', nil, :placeholder =>"I'm looking for"
+        = text_field_tag :start_date, nil, :placeholder => 'From', :class => 'search-date-picker'
+        = text_field_tag :end_date, nil, :placeholder => 'To', :class => 'search-date-picker'
         = submit_tag 'Search', :class => 'button is-inverse'
 
   %section{:class => "story", :id => "second", :data => {:speed => "4", :type => "background"}}
     %article
-      %h1 Rent your stuff
-      %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.
+      %h1 
+        Looking to rent something?
+      %a.button.is-default{:href => '/items'}
+        Check out available items
+
   %section{:class => "story", :id => "third", :data => {:speed => "6", :type => "background"}}
     %div.photograph{:data => {:type => "sprite", :offsetY => "1250", :Xposition => "25%%", :speed => "2"}}
     %article
   
   %section{:class => "story", :id => "fourth", :data => {:speed => "4", :type => "background"}}
     %article
-      %h1 Rent your stuff
-      %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.
+      %h1 Have something laying around?
+      %a.button.is-default{:href => '/auth/facebook'}
+        Sign in with facebook
+      to rent out your stuff.
   %section{:class => "story", :id => "fifth", :data => {:speed => "6", :type => "background"}}
     %div.photograph{:data => {:type => "sprite", :offsetY => "1250", :Xposition => "25%%", :speed => "2"}}
     %article

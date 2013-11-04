@@ -11,12 +11,12 @@
           - @item.photos.each do |photo|
             =link_to image_tag(photo.file), "#{photo.file}"
         
-        #nav-tabs
+        .nav-tab-area
           .tabs
-            %ul
+            %ul#nav-tabs
               %li
                 = link_to 'Description', '#description'
-              %li
+              %li.active
                 = link_to 'Feedback', '#feedback'
               %li
                 = link_to 'Map view', '#map'
@@ -33,9 +33,9 @@
                 \% of borrowers had a positive experience
                 %br
                 %br
-                %a.button.is-inverse#show-feedback
+                %a.button.is-default#show-feedback
                   Leave feedback
-                = form_for [@item, @feedback], url: item_create_feedback_path(@item), html: {class: "feedback_form"} do |f|
+                = form_for [@item, @feedback], url: item_create_feedback_path(@item), html: {id: "feedback_form"} do |f|
                   %p
                     = f.text_area :comment, size: "60x6", placeholder: "Leave feedback"
                   = f.radio_button(:thumbs_up, "up")
@@ -44,8 +44,21 @@
                   = f.label(:thumbs_up_down, "Thumbs Down")
                   %p
                     = f.submit "Submit", :class => 'button is-inverse'
-                - if @feedbacks.count > 0
-                  = render @feedbacks
+                = render @feedbacks
+              -else
+                %p
+                  Looks like nobody has left feeback for this item
+                %a.button.is-default#first-show-feedback
+                  Be the first one
+                = form_for [@item, @feedback], url: item_create_feedback_path(@item), html: {id: "first_feedback_form"} do |f|
+                  %p
+                    = f.text_area :comment, size: "60x6", placeholder: "Leave feedback"
+                  = f.radio_button(:thumbs_up, "up")
+                  = f.label(:thumbs_up_up, "Thumbs Up")
+                  = f.radio_button(:thumbs_up, "down")
+                  = f.label(:thumbs_up_down, "Thumbs Down")
+                  %p
+                    = f.submit "Submit", :class => 'button is-inverse'
             #map
               "LOL NO MAP HERE"
 

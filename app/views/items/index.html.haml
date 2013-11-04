@@ -4,9 +4,9 @@
       %h3
         Search
       = form_tag items_path,:method => 'GET',  :class => 'search-form item-search-form', :id => 'form-with-daterange' do 
-        = text_field_tag 'q[description_cont]', "I'm looking for"
-        = text_field_tag :start_date,'From', :class => 'search-date-picker'
-        = text_field_tag :end_date, 'To', :class => 'search-date-picker'
+        = text_field_tag 'q[description_cont]', nil, :placeholder => "I'm looking for"
+        = text_field_tag :start_date, nil, :placeholder => "From", :class => 'search-date-picker'
+        = text_field_tag :end_date, nil, :placeholder => "To", :class => 'search-date-picker'
         = submit_tag 'Search', :class => 'button is-inverse'
     %ul.col-33.sorting
       %h3

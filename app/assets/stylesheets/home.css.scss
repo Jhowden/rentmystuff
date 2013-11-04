@@ -135,7 +135,7 @@ nav a {
 }
 
 .story article {  
-  width: 445px;
+  width: 750px;
   text-align: center;
   margin: auto; 
   padding: 10px 20px;
@@ -155,12 +155,20 @@ footer {
   height:100px;
   background: $primary-color; 
   clear:both;
+  text-align: center;
+
+  ul {
+    position: relative;
+    top: 40px;
+    margin: 0;
+  }
 
 }
 
 footer li {
   list-style-type: none;
   display: inline-block;
+  margin: 0 20px;
 
   a{
     color:$secondary-color;
